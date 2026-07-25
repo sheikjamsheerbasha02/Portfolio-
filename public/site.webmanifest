@@ -1,0 +1,16 @@
+{
+  "name": "Sheik Jamsheer Basha Portfolio",
+  "short_name": "Jamsheer Portfolio",
+  "description": "Software Engineer & Full Stack Developer Portfolio",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#020617",
+  "theme_color": "#020617",
+  "icons": [
+    {
+      "src": "/vite.svg",
+      "sizes": "192x192",
+      "type": "image/svg+xml"
+    }
+  ]
+}
