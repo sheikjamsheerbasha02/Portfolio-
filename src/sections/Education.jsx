@@ -1,8 +1,10 @@
-import { educationData } from '../data/portfolioData';
+import { educationData, educationList } from '../data/portfolioData';
 import SectionHeader from '../components/common/SectionHeader';
 import GlassCard from '../components/common/GlassCard';
 
 export default function Education() {
+  const items = educationData || educationList || [];
+
   return (
     <section id="education" aria-label="Education Background" className="section-container">
       <SectionHeader
@@ -13,7 +15,7 @@ export default function Education() {
       />
 
       <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "24px" }}>
-        {educationData.map((edu, idx) => (
+        {items.map((edu, idx) => (
           <GlassCard key={idx} style={{ display: "flex", flexDirection: "column", justifyContent: "space-between" }}>
             <div>
               <div style={{
@@ -26,7 +28,7 @@ export default function Education() {
                 color: "#a855f7",
                 marginBottom: "14px"
               }}>
-                {edu.status}
+                {edu.period || edu.status || 'Academic Track'}
               </div>
 
               <h3 style={{ fontSize: "18px", fontWeight: "700", color: "#ffffff", margin: "0 0 8px 0" }}>
