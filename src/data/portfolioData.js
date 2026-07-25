@@ -28,14 +28,14 @@ export const developerInfo = {
 };
 
 export const navLinks = [
-  { href: "#hero", label: "Home" },
-  { href: "#about", label: "About" },
-  { href: "#tech-stack", label: "Tech Stack" },
-  { href: "#projects", label: "Projects" },
-  { href: "#experience", label: "Experience" },
-  { href: "#education", label: "Education" },
-  { href: "#achievements", label: "Achievements" },
-  { href: "#contact", label: "Contact" }
+  { id: "hero", href: "#hero", label: "Home" },
+  { id: "about", href: "#about", label: "About" },
+  { id: "tech-stack", href: "#tech-stack", label: "Tech Stack" },
+  { id: "projects", href: "#projects", label: "Projects" },
+  { id: "experience", href: "#experience", label: "Experience" },
+  { id: "education", href: "#education", label: "Education" },
+  { id: "achievements", href: "#achievements", label: "Achievements" },
+  { id: "contact", href: "#contact", label: "Contact" }
 ];
 
 export const techStackCategories = [
