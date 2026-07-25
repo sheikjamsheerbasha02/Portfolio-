@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, lazy, Suspense } from "react";
 import { ToastProvider } from "./context/ToastContext";
 import { initAnalytics } from "./services/analytics";
 import { useCommandPalette } from "./hooks/useCommandPalette";
@@ -19,37 +19,37 @@ import Footer from "./components/Footer";
 import ChatBot from "./components/ChatBot";
 import CommandPalette from "./components/CommandPalette";
 
-import Resume3DCanvas from "./components/canvas/Resume3DCanvas";
-import IntroLoader from "./components/3d/IntroLoader";
-import CursorFollower from "./components/common/CursorFollower";
+// Lazy load 3D Developer Universe page for 0-latency recruiter loads
+const DeveloperUniverse = lazy(() => import("./pages/DeveloperUniverse"));
 
 function MainContent() {
-  const [loadingComplete, setLoadingComplete] = useState(false);
+  const [viewMode, setViewMode] = useState("recruiter"); // "recruiter" | "universe"
   const { isOpen, openPalette, closePalette } = useCommandPalette();
 
   useEffect(() => {
     initAnalytics();
   }, []);
 
+  if (viewMode === "universe") {
+    return (
+      <Suspense fallback={
+        <div style={{ minHeight: "100vh", backgroundColor: "#020617", color: "#38bdf8", display: "flex", alignItems: "center", justifyContent: "center", fontFamily: "var(--font-mono)", fontSize: "18px" }}>
+          Initializing Developer Universe 3D Engine...
+        </div>
+      }>
+        <DeveloperUniverse onExit={() => setViewMode("recruiter")} />
+      </Suspense>
+    );
+  }
+
   return (
     <div style={{ color: "#f8fafc", minHeight: "100vh", position: "relative" }}>
-      {/* 3D WebGL Canvas Engine Backdrop */}
-      <Resume3DCanvas />
-
-      {/* Reactive Magnetic Cursor Follower */}
-      <CursorFollower />
-
-      {/* Opening Intro Loader */}
-      {!loadingComplete && (
-        <IntroLoader onComplete={() => setLoadingComplete(true)} />
-      )}
-
       {/* Main Navigation Header */}
       <Navbar onOpenCommandPalette={openPalette} />
 
       {/* Main Content Sections */}
       <main id="main-content">
-        <Hero />
+        <Hero onEnterDeveloperUniverse={() => setViewMode("universe")} />
 
         {/* GitHub Statistics Card */}
         <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "0 24px" }}>

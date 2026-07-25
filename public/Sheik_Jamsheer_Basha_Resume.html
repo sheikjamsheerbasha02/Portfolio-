@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sheik Jamsheer Basha - Official Resume</title>
+  <link rel="stylesheet" href="/Resume.print.css" />
+  <style>
+    :root {
+      --primary: #020617;
+      --accent: #38bdf8;
+      --text: #334155;
+      --dark-text: #0f172a;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      padding: 40px 20px;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background-color: #f8fafc;
+      color: var(--text);
+      line-height: 1.5;
+    }
+    .resume-card {
+      max-width: 850px;
+      margin: 0 auto;
+      background: #ffffff;
+      padding: 48px;
+      border-radius: 12px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+      border: 1px solid #e2e8f0;
+    }
+    .header {
+      border-bottom: 2px solid #0f172a;
+      padding-bottom: 20px;
+      margin-bottom: 24px;
+    }
+    h1 {
+      margin: 0 0 6px 0;
+      font-size: 32px;
+      letter-spacing: 1px;
+      color: var(--dark-text);
+      font-weight: 800;
+    }
+    .contact-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      font-size: 13px;
+      color: #475569;
+    }
+    .contact-item { display: flex; align-items: center; gap: 6px; }
+    .contact-item a { color: #0284c7; text-decoration: none; font-weight: 600; }
+    .section-header {
+      background-color: #f1f5f9;
+      padding: 6px 12px;
+      font-size: 14px;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+      color: #0f172a;
+      margin: 24px 0 12px 0;
+      border-left: 4px solid #0284c7;
+    }
+    p { margin: 0 0 10px 0; font-size: 14px; }
+    .edu-item, .exp-item { margin-bottom: 16px; }
+    .item-header { display: flex; justify-content: space-between; font-weight: 700; color: var(--dark-text); font-size: 14px; }
+    .item-sub { font-size: 13px; color: #64748b; margin-bottom: 6px; }
+    ul { margin: 6px 0 12px 0; padding-left: 20px; font-size: 13.5px; }
+    li { margin-bottom: 4px; }
+    .skills-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; font-size: 14px; font-weight: 600; color: #0f172a; }
+    .action-bar {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      display: flex;
+      gap: 12px;
+      z-index: 1000;
+    }
+    .btn {
+      background: #0284c7;
+      color: #ffffff;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 9999px;
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 4px 14px rgba(2, 132, 199, 0.4);
+      text-decoration: none;
+    }
+    .btn-secondary { background: #0f172a; }
+    @media print {
+      .action-bar { display: none !important; }
+      body { padding: 0; background: #fff; }
+      .resume-card { border: none; box-shadow: none; padding: 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="action-bar">
+    <button onclick="window.print()" class="btn btn-secondary">🖨️ Print / Save PDF</button>
+    <a href="/" class="btn">← Back to Portfolio</a>
+  </div>
+
+  <div class="resume-card">
+    <!-- Header -->
+    <div class="header">
+      <h1>SHEIK JAMSHEER BASHA</h1>
+      <div class="contact-bar">
+        <span class="contact-item">📞 +91 82485 17785</span>
+        <span class="contact-item">📍 103/1, South street, Santhapet, Thirukovilur, Kallakurichi District, TamilNadu 605-757</span>
+        <span class="contact-item">🌐 <a href="https://jamsheer-portfolio.vercel.app" target="_blank">jamsheer-portfolio.vercel.app</a></span>
+        <span class="contact-item">✉️ <a href="mailto:sheikjamsheerbasha@gmail.com">sheikjamsheerbasha@gmail.com</a></span>
+      </div>
+    </div>
+
+    <!-- About Me -->
+    <div class="section-header">ABOUT ME</div>
+    <p>
+      A motivated and disciplined graduate seeking an entry-level opportunity in a growth-oriented organization where I can apply my academic knowledge, analytical thinking, and problem-solving abilities to contribute to organizational goals. Eager to learn new technologies, adapt to professional environments, and continuously improve my skills while building a long-term career through dedication, teamwork, and consistent performance.
+    </p>
+
+    <!-- Education -->
+    <div class="section-header">EDUCATION</div>
+    <div class="edu-item">
+      <div class="item-header">
+        <span>IFET COLLEGE OF ENGINEERING</span>
+        <span>2019 – 2023</span>
+      </div>
+      <div class="item-sub">B.Tech – Information Technology | Aggregate: 71%</div>
+    </div>
+
+    <div class="edu-item">
+      <div class="item-header">
+        <span>MOUNT PARK MATRIC HR. SEC. SCHOOL</span>
+        <span>2019</span>
+      </div>
+      <div class="item-sub">Higher Secondary Certificate (HSC) | Percentage: 51.3%</div>
+    </div>
+
+    <div class="edu-item">
+      <div class="item-header">
+        <span>SRIGNANANANDA MAT. HR. SEC. SCHOOL</span>
+        <span>2017</span>
+      </div>
+      <div class="item-sub">Secondary School Leaving Certificate (SSLC) | Percentage: 78%</div>
+    </div>
+
+    <!-- Technical Skills -->
+    <div class="section-header">SKILLS</div>
+    <div class="skills-grid">
+      <div>• HTML5 / CSS3</div>
+      <div>• PHP / Laravel</div>
+      <div>• React.js / Next.js</div>
+      <div>• JavaScript / TypeScript</div>
+      <div>• Angular</div>
+      <div>• Git & GitHub</div>
+    </div>
+
+    <!-- Courses & Certifications -->
+    <div class="section-header">COURSES & CERTIFICATIONS</div>
+    <ul>
+      <li><strong>Introduction to Cybersecurity</strong> & <strong>Packet Tracer Essentials</strong> (Cisco Academy)</li>
+      <li><strong>Cybersecurity Essentials Certification</strong></li>
+      <li>
+        <strong>6-Month Certification Course - Accord Info Matrix</strong> (Web Development, Core Java, Dot NET):
+        Developed responsive website features that improved user experience and increased session duration by 20%.
+      </li>
+      <li>
+        <strong>1-Month Certification Internship - Le-Meniz (Puducherry)</strong> (Web Development):
+        Developed innovative web solutions that reduced page load time by 25% and enhanced overall user experience.
+      </li>
+    </ul>
+
+    <!-- Work Experience -->
+    <div class="section-header">WORK EXPERIENCE</div>
+    <div class="exp-item">
+      <div class="item-header">
+        <span>Sahal Webads Pvt Ltd., - Backend Developer & Specialist</span>
+        <span>2023 – Present</span>
+      </div>
+      
+      <ul>
+        <li><strong>Backend Developer:</strong> Developed and maintained backend modules ensuring system reliability and performance. Managed database operations including data validation, updates, and error handling. Supported REST API integrations.</li>
+        <li><strong>Manual Tester:</strong> Designed and executed test cases to verify application functionality. Identified, documented, and tracked defects until closure. Performed functional and regression testing to maintain software quality.</li>
+        <li><strong>Sales Executive:</strong> Promoted company services and handled customer enquiries professionally. Explained product features and assisted customers in decision-making.</li>
+        <li><strong>Customer Support Executive:</strong> Responded to customer queries and resolved complaints promptly. Maintained accurate records of customer interactions and updates.</li>
+        <li><strong>Technical Support Coordinator:</strong> Coordinated between technical teams and clients for issue resolution. Monitored service requests and ensured timely closure.</li>
+      </ul>
+    </div>
+
+  </div>
+
+</body>
+</html>

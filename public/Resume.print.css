@@ -1,0 +1,39 @@
+/* Print Stylesheet for Official Resume */
+@media print {
+  body {
+    background-color: #ffffff !important;
+    color: #000000 !important;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif !important;
+    font-size: 11pt !important;
+    line-height: 1.4 !important;
+    margin: 0 !important;
+    padding: 1.5cm !important;
+  }
+
+  header, footer, nav, button, .no-print {
+    display: none !important;
+  }
+
+  a {
+    color: #000000 !important;
+    text-decoration: none !important;
+  }
+
+  .resume-container {
+    box-shadow: none !important;
+    border: none !important;
+    width: 100% !important;
+    padding: 0 !important;
+  }
+
+  .section-title {
+    border-bottom: 2px solid #000000 !important;
+    color: #000000 !important;
+    padding-bottom: 4px !important;
+    margin-top: 16px !important;
+  }
+
+  .page-break {
+    page-break-before: always;
+  }
+}

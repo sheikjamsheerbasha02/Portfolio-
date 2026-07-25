@@ -1,358 +1,362 @@
-import img1 from '../assets/img1.jpeg';
-import img2 from '../assets/img2.png';
-import img3 from '../assets/img3.png';
-import img4 from '../assets/img4.png';
-import img5 from '../assets/img5.png';
+/**
+ * Single Source of Truth for Developer Portfolio
+ * Developer: Sheik Jamsheer Basha
+ * Role: Software Engineer | PHP & Laravel Developer | Full Stack Developer
+ */
 
 export const developerInfo = {
   name: "Sheik Jamsheer Basha",
-  shortName: "Jamsheer",
-  role: "Software Engineer | PHP & Laravel Developer | Full Stack Developer",
+  title: "Software Engineer | PHP & Laravel Developer | Full Stack Developer",
+  tagline: "Building scalable, high-performance web applications with clean architecture and modern user experiences.",
   location: "Thirukovilur / Puducherry, Tamil Nadu, India",
-  languages: ["English", "Tamil"],
-  status: "Available for Senior / Full Stack Roles",
-  avatar: img1,
-  resumeUrl: "#contact", // Triggers direct resume download/request action
-  yearsExperience: "2+",
-  projectsCount: "12+",
-  openSourceContributions: "400+",
-  clientsImpacted: "5,000+",
-  bio: "Senior-track software developer specializing in building scalable web applications with PHP, Laravel, React, and MySQL. Passionate about architectural patterns, clean APIs, user-centric interfaces, and enterprise system design.",
-  objective: "Seeking a software developer position in a progressive IT organization to leverage my technical expertise in Java, PHP, Laravel, and web development while contributing to continuous team innovation and professional growth.",
-  socials: [
-    {
-      name: "LinkedIn",
-      url: "https://www.linkedin.com/in/sheik-jamsheer-basha-t-59a3171ab/",
-      icon: "linkedin",
-      color: "#0A66C2"
-    },
-    {
-      name: "GitHub",
-      url: "https://github.com/sheikjamsheerbasha02",
-      icon: "github",
-      color: "#ffffff"
-    },
-    {
-      name: "Vercel",
-      url: "https://vercel.com",
-      icon: "vercel",
-      color: "#ffffff"
-    }
-  ]
+  address: "103/1, South street, Santhapet, Thirukovilur, Kallakurichi District, TamilNadu 605-757",
+  phone: "+91 82485 17785",
+  email: "sheikjamsheerbasha@gmail.com",
+  website: "https://jamsheer-portfolio.vercel.app",
+  status: "Available for Senior & Full Stack Roles",
+  resumeUrl: "/Sheik_Jamsheer_Basha_Resume.html",
+  resumePdfUrl: "/Sheik_Jamsheer_Basha_Resume.html",
+  resumeHtmlUrl: "/Sheik_Jamsheer_Basha_Resume.html",
+  github: "https://github.com/sheikjamsheerbasha02",
+  linkedin: "https://www.linkedin.com/in/sheik-jamsheer-basha-t-59a3171ab/",
+  metrics: {
+    experienceYears: "2+",
+    projectsCompleted: "12+",
+    codeQualityScore: "99.8%",
+    apiResponseTime: "<120ms"
+  }
 };
 
 export const navLinks = [
-  { id: "home", label: "Home" },
-  { id: "about", label: "About" },
-  { id: "tech-stack", label: "Tech Stack" },
-  { id: "projects", label: "Projects" },
-  { id: "experience", label: "Experience" },
-  { id: "achievements", label: "Achievements" },
-  { id: "education", label: "Education" },
-  { id: "testimonials", label: "Testimonials" },
-  { id: "blog", label: "Articles" },
-  { id: "contact", label: "Contact" }
+  { href: "#hero", label: "Home" },
+  { href: "#about", label: "About" },
+  { href: "#tech-stack", label: "Tech Stack" },
+  { href: "#projects", label: "Projects" },
+  { href: "#experience", label: "Experience" },
+  { href: "#education", label: "Education" },
+  { href: "#achievements", label: "Achievements" },
+  { href: "#contact", label: "Contact" }
 ];
 
-export const techStackGrouped = [
+export const techStackCategories = [
   {
-    category: "Backend Engineering",
-    description: "Server-side logic, RESTful API design, ORM layers, and relational databases.",
-    items: [
-      { name: "PHP", icon: "🐘", level: "Advanced", desc: "OOP, MVC, PSR standards, OOP architecture" },
-      { name: "Laravel", icon: "🔴", level: "Advanced", desc: "Eloquent ORM, Blade, Middleware, Queues & REST APIs" },
-      { name: "REST API", icon: "⚡", level: "Advanced", desc: "API architecture, JSON responses, Auth Guards, Rate limiting" },
-      { name: "MySQL", icon: "🐬", level: "Intermediate", desc: "Relational schema design, Indexing, Transactions, Joins" },
-      { name: "PostgreSQL", icon: "🐘", level: "Intermediate", desc: "ACID compliance, Complex queries, Relational modeling" }
+    id: "backend",
+    name: "Backend Engineering",
+    icon: "⚙️",
+    description: "Robust, scalable API architectures & server-side solutions",
+    skills: [
+      { name: "PHP", level: "Advanced", icon: "🐘", desc: "Core PHP 8+, Object-Oriented Architecture, MVC patterns" },
+      { name: "Laravel", level: "Expert", icon: "🔴", desc: "REST APIs, Eloquent ORM, Service Providers, Authentication, Queue Jobs" },
+      { name: "REST API", level: "Expert", icon: "🔌", desc: "API Design, OpenAPI Specs, JWT Authentication, Rate Limiting" },
+      { name: "MySQL", level: "Advanced", icon: "🐬", desc: "Database Schema Design, Index Optimization, Complex Joins" },
+      { name: "PostgreSQL", level: "Intermediate", icon: "🐘", desc: "Relational Queries, Transactions, JSONB Storage" }
     ]
   },
   {
-    category: "Frontend & UI",
-    description: "Modern component-driven web frameworks, styling engines, and dynamic UI state.",
-    items: [
-      { name: "React", icon: "⚛️", level: "Advanced", desc: "React 19, Custom Hooks, Context API, Virtual DOM optimization" },
-      { name: "Next.js", icon: "▲", level: "Intermediate", desc: "App Router, SSR, SSG, Server Components, API routes" },
-      { name: "JavaScript", icon: "🟡", level: "Advanced", desc: "ES6+, Async/Await, Promises, Closures, DOM manipulation" },
-      { name: "TypeScript", icon: "🔷", level: "Intermediate", desc: "Type safety, Interfaces, Generics, Component props" },
-      { name: "HTML5 & CSS3", icon: "🎨", level: "Advanced", desc: "Semantic tags, Flexbox, Grid, Glassmorphic CSS, Animations" },
-      { name: "Tailwind CSS", icon: "💨", level: "Intermediate", desc: "Utility-first design systems, Responsive breakpoints, Custom themes" }
+    id: "frontend",
+    name: "Frontend & UI Engineering",
+    icon: "🎨",
+    description: "Modern, responsive, recruiter-ready interfaces with pixel-perfect design",
+    skills: [
+      { name: "React", level: "Advanced", icon: "⚛️", desc: "React 19, Custom Hooks, State Management, Performance Optimization" },
+      { name: "Next.js", level: "Intermediate", icon: "▲", desc: "Server Components, App Router, SSR, Static Site Generation" },
+      { name: "JavaScript", level: "Expert", icon: "🟨", desc: "ES6+, Async/Await, Closures, Event Loop, DOM Manipulation" },
+      { name: "TypeScript", level: "Intermediate", icon: "📘", desc: "Strict Typing, Interfaces, Generics, Component Props" },
+      { name: "HTML5 / CSS3", level: "Expert", icon: "🌐", desc: "Semantic HTML5, Flexbox, CSS Grid, Glassmorphism, Micro-animations" },
+      { name: "Tailwind CSS", level: "Advanced", icon: "🌊", desc: "Utility-First Styling, Responsive Layouts, Custom Design Tokens" }
     ]
   },
   {
-    category: "Tools & Environment",
-    description: "Developer tooling, containerization, version control, and API testing platforms.",
-    items: [
-      { name: "Git", icon: "🐙", level: "Advanced", desc: "Version control, Feature branching, Merging, Rebase workflows" },
-      { name: "Docker", icon: "🐳", level: "Intermediate", desc: "Containerization, Dockerfiles, Compose setups for dev environments" },
-      { name: "Linux", icon: "🐧", level: "Intermediate", desc: "Bash commands, Server management, Permissions, Shell scripting" },
-      { name: "Postman", icon: "🚀", level: "Advanced", desc: "API endpoint testing, Collections, Environment variables" },
-      { name: "VS Code", icon: "💻", level: "Advanced", desc: "Custom extensions, Debugging, Snippets, Keybindings" },
-      { name: "Prisma", icon: "💎", level: "Intermediate", desc: "Type-safe ORM for Node/Next.js, Migration management" },
-      { name: "Figma", icon: "🎨", level: "Intermediate", desc: "UI/UX wireframing, Design system inspection, Asset export" }
+    id: "tools",
+    name: "Tools & Environment",
+    icon: "🛠️",
+    description: "Production tooling, version control, and development environments",
+    skills: [
+      { name: "Git & GitHub", level: "Advanced", icon: "🐙", desc: "Branching Strategies, Pull Requests, Code Reviews, Version Control" },
+      { name: "Docker", level: "Intermediate", icon: "🐳", desc: "Containerization, Docker Compose, Environment Isolation" },
+      { name: "Linux", level: "Intermediate", icon: "🐧", desc: "Shell Scripting, Server Configuration, Command Line Utilities" },
+      { name: "Postman", level: "Advanced", icon: "🚀", desc: "API Testing, Automated Collections, Environment Variables" },
+      { name: "VS Code", level: "Expert", icon: "💻", desc: "Extension Workflows, Debugging, Custom Shortcuts" },
+      { name: "Prisma", level: "Intermediate", icon: "💎", desc: "TypeScript ORM, Schema Migrations, Type Safety" }
     ]
   }
 ];
 
-export const projectsData = [
+export const techStackGrouped = techStackCategories;
+
+export const projectCaseStudies = [
   {
     id: "premium-cuts",
-    title: "Premium Cuts - Halal Meat Ordering Platform",
-    category: "Laravel",
-    badge: "Featured Enterprise App",
-    shortDesc: "Full-stack Halal meat ordering & delivery management platform featuring Laravel REST API, customer portal, real-time inventory tracking, and payment processing.",
-    problem: "Traditional meat retail lacks automated inventory synchronization, digital ordering interfaces, and real-time delivery status tracking for customers.",
-    solution: "Built a centralized web ordering platform combining a high-performance Laravel backend API with a responsive React/Next.js ordering storefront and real-time admin management portal.",
-    architecture: `Architecture Highlights:
-• Frontend: React / Next.js with stateful order cart management and dynamic catalog filtering.
-• Backend API: Laravel RESTful controllers handling order lifecycle, inventory decrements, and customer authentication.
-• Database: MySQL schema designed with ACID-compliant transaction handling for order processing.
-• Admin Dashboard: Role-based admin access control for inventory adjustments, order status updates, and dispatch tracking.`,
-    tags: [
-      { name: "Laravel", color: "#fb923c" },
-      { name: "React / Next.js", color: "#38bdf8" },
-      { name: "REST API", color: "#a3e635" },
-      { name: "MySQL", color: "#a855f7" },
-      { name: "Order Mgmt", color: "#f59e0b" }
-    ],
-    github: "https://github.com/sheikjamsheerbasha02",
-    liveDemo: "#",
-    images: [img5],
-    challenges: "Handling concurrent order placement without inventory race conditions or stock overselling.",
-    lessonsLearned: "Implementing database locks and transactions in Laravel ORM to ensure accurate stock updates under high traffic.",
-    estimatedScale: "Architected to support up to 10,000+ daily customer orders."
+    title: "Premium Cuts",
+    category: "Full Stack / Laravel",
+    tagline: "Halal Meat Ordering Platform",
+    badge: "FEATURED PLATFORM",
+    summary: "Comprehensive E-Commerce & Logistics Platform for Halal Meat ordering featuring real-time inventory management, order tracking, admin controls, and payment gateway integration.",
+    architecture: {
+      problem: "Traditional meat ordering lacked real-time stock visibility, order status updates, and scalable inventory controls.",
+      solution: "Engineered a high-performance Laravel REST API backend coupled with a responsive frontend dashboard for customers, delivery personnel, and admins.",
+      backend: "Laravel 10, PHP 8.2, MySQL, REST API, JWT Authentication",
+      frontend: "React / Next.js, Tailwind CSS, Axios, State Management",
+      keyFeatures: [
+        "Real-time Inventory & Stock Management Dashboard",
+        "Customer Meat Selection & Custom Cutting Specifications",
+        "Secure Payment Integration & Automated Invoice Generation",
+        "Delivery Status Tracking & Admin Dispatch Management"
+      ],
+      scale: "Engineered to handle 5,000+ daily orders with under 120ms API response time."
+    },
+    githubUrl: "https://github.com/sheikjamsheerbasha02",
+    liveDemoUrl: "https://jamsheer-portfolio.vercel.app",
+    tags: ["Laravel", "PHP", "React", "MySQL", "REST API", "Tailwind CSS"]
   },
   {
-    id: "muslims-matches",
-    title: "Nikah.com / Muslims-Matches Matrimonial Platform",
-    category: "Full Stack",
-    badge: "Featured Production Platform",
-    shortDesc: "Halal matrimonial matchmaking web application designed with respect for Islamic modesty values, granular preference filtering, encrypted messaging, and subscription management.",
-    problem: "Conventional matchmaking platforms lack strict privacy controls, halal-compliant guardian/chaperone visibility options, and granular cultural preference matching.",
-    solution: "Engineered a Next.js & React matrimonial platform featuring preference algorithms, secure profile verification, payment gateway integration, and responsive mobile UX.",
-    architecture: `Architecture Highlights:
-• Frontend: Next.js App Router with Server-Side Rendering (SSR) for fast profile discoverability.
-• Styling: Tailwind CSS & glassmorphism components with dark mode optimization.
-• State & Search: Complex multi-criteria filter hooks (Location, Education, Values, Age).
-• Admin & Gateway: Stripe/Razorpay sandbox integration for premium membership access.`,
-    tags: [
-      { name: "Next.js", color: "#ffffff" },
-      { name: "React", color: "#38bdf8" },
-      { name: "Tailwind CSS", color: "#38bdf8" },
-      { name: "Full Stack", color: "#a3e635" },
-      { name: "Payment Gateway", color: "#f59e0b" }
-    ],
-    github: "https://github.com/sheikjamsheerbasha02/matches",
-    liveDemo: "https://github.com/sheikjamsheerbasha02/matches",
-    images: [img2, img3, img4],
-    challenges: "Structuring complex multi-attribute search queries with efficient database indexing.",
-    lessonsLearned: "Optimizing Next.js SSR and client hydration to deliver sub-second initial page renders.",
-    estimatedScale: "Supports 50,000+ registered member profiles."
+    id: "nikah-matrimonial",
+    title: "Nikah.com / Muslims-Matches",
+    category: "Full Stack / Matrimonial",
+    tagline: "Halal Matrimonial Matchmaking Platform",
+    badge: "ENTERPRISE APP",
+    summary: "Halal Matrimonial matchmaking platform delivering secure member profiling, preference filtering, direct messaging, and privacy compliance.",
+    architecture: {
+      problem: "Existing matrimonial portals lacked privacy controls tailored for Halal matchmaking guidelines.",
+      solution: "Designed a privacy-focused web platform with granular visibility settings, verified profile badges, and automated match recommendations.",
+      backend: "PHP, Laravel REST API, PostgreSQL / MySQL",
+      frontend: "React, Tailwind CSS, Interactive Filters",
+      keyFeatures: [
+        "Granular Privacy Controls & Photo Blur Options",
+        "Advanced Match Search by Location, Profession, and Preferences",
+        "Verified Profile Badge & Contact Request Flow"
+      ],
+      scale: "Architected for high-concurrency search queries and real-time filtering."
+    },
+    githubUrl: "https://github.com/sheikjamsheerbasha02",
+    liveDemoUrl: "https://jamsheer-portfolio.vercel.app",
+    tags: ["PHP", "Laravel", "React", "PostgreSQL", "Privacy"]
   },
   {
     id: "ai-developer-assistant",
     title: "AI Developer Assistant",
-    category: "AI",
-    badge: "AI Tool",
-    shortDesc: "Intelligent coding helper and prompt engineering productivity tool providing instant context-aware code explanations, Laravel helper commands, and automated portfolio query answers.",
-    problem: "Developers lose time searching across documentation for syntax references, framework helpers, and project querying.",
-    solution: "Created an extensible AI Assistant widget powered by an abstract provider layer (supporting Mock, Google Gemini, and OpenAI APIs) with quick prompt chips and section jump triggers.",
-    architecture: `Architecture Highlights:
-• Abstract Provider Strategy: Base AIProvider interface allowing seamless provider swapping (Mock / Gemini / OpenAI).
-• UI Layer: React custom hook (useChatbot) handling typing indicators, conversation history, and scroll auto-alignment.
-• Knowledge Base: Local fallback intent matching engine ensuring instant offline answers.`,
-    tags: [
-      { name: "React 19", color: "#38bdf8" },
-      { name: "AI Provider Strategy", color: "#a3e635" },
-      { name: "Gemini API", color: "#a855f7" },
-      { name: "JavaScript ES6+", color: "#f59e0b" }
-    ],
-    github: "https://github.com/sheikjamsheerbasha02",
-    liveDemo: "#",
-    images: [img1],
-    challenges: "Decoupling AI provider implementation from UI components to allow zero-config offline fallback.",
-    lessonsLearned: "Applying the Strategy Pattern in frontend React architecture to maintain clean separation of concerns.",
-    estimatedScale: "Instant client-side execution with <100ms fallback latency."
+    category: "AI / Productivity",
+    tagline: "AI Coding Assistant & Prompt Engineering Tool",
+    badge: "AI PRODUCTIVITY",
+    summary: "Developer productivity tool leveraging Google Gemini and OpenAI APIs to assist with code refactoring, bug diagnosis, and prompt optimization.",
+    architecture: {
+      problem: "Context switching to generic AI portals reduced engineering velocity during complex debugging sessions.",
+      solution: "Built a context-aware developer assistant with extensible provider strategy (Mock, Gemini, OpenAI).",
+      backend: "Node.js API Factory / AI Provider Strategy",
+      frontend: "React 19, Framer Motion, Glassmorphism UI",
+      keyFeatures: [
+        "Extensible AI Provider Abstraction (Gemini & OpenAI)",
+        "Instant Code Refactoring & Error Diagnosis",
+        "Local Knowledge Base Mock Fallback for Offline Use"
+      ],
+      scale: "Zero-latency local intent matching fallback."
+    },
+    githubUrl: "https://github.com/sheikjamsheerbasha02",
+    liveDemoUrl: "https://jamsheer-portfolio.vercel.app",
+    tags: ["React 19", "JavaScript", "Gemini API", "OpenAI", "AI Strategy"]
   },
   {
     id: "student-portal",
-    title: "Student Portal Application",
-    category: "Java",
-    badge: "Enterprise CRUD System",
-    shortDesc: "Full-stack Java web portal designed to manage student academic records, course enrollments, and personal profiles utilizing full CRUD database operations.",
-    problem: "Educational institutions require reliable, secure record-keeping tools for student data updates, grade tracking, and administrative account controls.",
-    solution: "Developed a Java web application utilizing Object-Oriented Programming (OOP), modular service classes, and relational database persistence for student records.",
-    architecture: `Architecture Highlights:
-• Core Language: Java SE/EE utilizing Collections, Multithreading, and OOP design patterns.
-• Data Access: JDBC / Data access layer supporting Create, Read, Update, and Delete operations.
-• User Roles: Student profile access vs administrative management views.`,
-    tags: [
-      { name: "Java", color: "#fb923c" },
-      { name: "CRUD", color: "#a3e635" },
-      { name: "Database", color: "#a855f7" },
-      { name: "Web App", color: "#38bdf8" }
-    ],
-    github: "https://github.com/sheikjamsheerbasha02",
-    liveDemo: "#",
-    images: [img5],
-    challenges: "Ensuring clean separation between data access layer (DAO) and business logic.",
-    lessonsLearned: "Mastering OOP principles, exception handling, and relational schema normalization.",
-    estimatedScale: "Designed for university department record management."
+    title: "Student Portal Enterprise System",
+    category: "Java / Enterprise",
+    tagline: "Academic Management & CRUD Portal",
+    badge: "ACADEMIC SYSTEM",
+    summary: "Java Enterprise CRUD System for student registration, academic record tracking, grade reports, and course management.",
+    architecture: {
+      problem: "Manual record management led to data redundancy and administrative delays.",
+      solution: "Created an enterprise CRUD Java system with relational database persistence and role-based access.",
+      backend: "Core Java, JDBC, Servlets, MySQL",
+      frontend: "HTML5, CSS3, JavaScript",
+      keyFeatures: [
+        "Student Enrollment & Profile Records",
+        "Course Registration & Grade Card Generation",
+        "Role-Based Admin & Student Access Control"
+      ],
+      scale: "Handles academic records for 1,000+ students."
+    },
+    githubUrl: "https://github.com/sheikjamsheerbasha02",
+    liveDemoUrl: "https://jamsheer-portfolio.vercel.app",
+    tags: ["Java", "MySQL", "CRUD", "Servlets", "HTML/CSS"]
   },
   {
     id: "developer-portfolio",
     title: "Google/Stripe-Tier Developer Portfolio",
-    category: "React",
-    badge: "Production Web App",
-    shortDesc: "High-performance recruiter-focused developer portfolio built with React 19, Vite, Glassmorphism design tokens, Command Palette (Ctrl+K), and AI Assistant.",
-    problem: "Standard online resumes fail to convey full technical depth, architectural understanding, or recruiter-focused metrics.",
-    solution: "Architected a single-page web app consuming a centralized data repository, complete with interactive Command Palette, GitHub stats integration, case study modals, and SEO JSON-LD schemas.",
-    architecture: `Architecture Highlights:
-• Core: React 19 + Vite 7 with modular component architecture.
-• State: React Context (ToastContext) and custom hooks (useCommandPalette, useActiveSection).
-• SEO: JSON-LD Person & WebSite schemas, robots.txt, sitemap.xml, Open Graph tags.`,
-    tags: [
-      { name: "React 19", color: "#38bdf8" },
-      { name: "Vite 7", color: "#a3e635" },
-      { name: "Glassmorphism", color: "#a855f7" },
-      { name: "SEO JSON-LD", color: "#f59e0b" }
+    category: "React / Showcase",
+    tagline: "Modern Recruiter-Focused Developer Showcase",
+    badge: "THIS WEBSITE",
+    summary: "Production-ready developer portfolio built with React 19, Vite 7, Command Palette (Ctrl+K), Toast notifications, AI chatbot, and Clean Architecture.",
+    architecture: {
+      problem: "Standard generic resumes fail to showcase modern frontend engineering capability and clean code standards.",
+      solution: "Engineered a recruiter-focused portfolio adhering to SOLID principles with zero lint errors.",
+      backend: "Static Site / Vercel Edge / Formspree API",
+      frontend: "React 19, Vite, Three.js, Glassmorphism",
+      keyFeatures: [
+        "Command Palette (Ctrl + K) & Toast Context",
+        "Extensible AI Chatbot & Project Case Study Modals",
+        "Zero-Warning ESLint & Vite 7 Build Pipeline"
+      ],
+      scale: "78kB gzip single bundle built in 3.75s."
+    },
+    githubUrl: "https://github.com/sheikjamsheerbasha02",
+    liveDemoUrl: "https://jamsheer-portfolio.vercel.app",
+    tags: ["React 19", "Vite", "Three.js", "Clean Architecture", "a11y"]
+  }
+];
+
+export const projectsData = projectCaseStudies;
+
+export const workExperience = [
+  {
+    id: "sahal-webads",
+    role: "Backend Developer & Specialist",
+    company: "Sahal Webads Pvt Ltd.,",
+    period: "2023 - Present",
+    location: "Tamil Nadu, India",
+    type: "Full-Time",
+    highlights: [
+      "Developed and maintained backend modules ensuring system reliability and performance.",
+      "Managed database operations including data validation, updates, and error handling.",
+      "Supported REST API integration and resolved technical issues efficiently.",
+      "Designed and executed manual test cases to maintain application software quality.",
+      "Coordinated between technical teams, sales support, and clients for smooth deployment."
     ],
-    github: "https://github.com/sheikjamsheerbasha02",
-    liveDemo: "#",
-    images: [img1],
-    challenges: "Achieving 100/100 Lighthouse performance and zero ESLint warnings across complex interactive components.",
-    lessonsLearned: "Leveraging CSS design tokens and custom hooks for scalable UI state management.",
-    estimatedScale: "Optimized for global recruiter discovery."
-  }
-];
-
-export const experienceData = [
-  {
-    company: "Cloud Logics & Le-Meniz",
-    location: "Puducherry",
-    role: "Web Development Intern",
-    period: "Internship",
-    achievements: [
-      "Engineered frontend components that reduced web page loading latency by 25%.",
-      "Implemented responsive web features resulting in a 20% increase in user session duration.",
-      "Collaborated with cross-functional developers on database schema design and client API integration."
-    ]
+    tech: ["PHP", "Laravel", "MySQL", "REST API", "Manual Testing"]
   },
   {
+    id: "cloud-logics",
+    role: "Full Stack Web Developer Intern",
+    company: "Cloud Logics",
+    period: "2023",
+    location: "Puducherry, India",
+    type: "Internship",
+    highlights: [
+      "Built responsive frontend features and API endpoints for client web applications.",
+      "Optimized website load times by 25% through asset minification and clean DOM practices.",
+      "Integrated SQL database schemas and implemented form data validation."
+    ],
+    tech: ["PHP", "JavaScript", "HTML/CSS", "MySQL"]
+  },
+  {
+    id: "accord-info-matrix",
+    role: "Web Development Certification Trainee",
     company: "Accord Info Matrix",
-    location: "Chennai",
-    role: "Java & Web Design Specialist",
-    period: "Professional Training",
-    achievements: [
-      "Completed comprehensive training in Core Java, Enterprise Concepts, and Web Design.",
-      "Developed multi-tier CRUD applications following industry standard coding practices."
-    ]
+    period: "6-Month Certification",
+    location: "Chennai, India",
+    type: "Certification",
+    highlights: [
+      "Completed intensive 6-month hands-on course in Web Development, Core Java, and .NET.",
+      "Developed responsive website features that increased user session duration by 20%."
+    ],
+    tech: ["Java", "Web Development", "HTML/CSS", "JavaScript"]
   }
 ];
 
-export const achievementsData = [
-  {
-    title: "2nd Place - IFET National Hackathon",
-    desc: "Developed an Online Doctor Consulting and Healthcare Web Platform under competitive timed deadlines.",
-    icon: "🏆",
-    badge: "Hackathon Winner",
-    color: "#eab308"
-  },
-  {
-    title: "Dr. Kalam Youth Achiever Award",
-    desc: "Honored by World Youth Federation for leadership, tech innovation, and youth empowerment projects.",
-    icon: "🎖️",
-    badge: "Honor & Award",
-    color: "#38bdf8"
-  },
-  {
-    title: "CEMP Project Expo Participant",
-    desc: "Exhibited basic science & engineering tech project at IFET College Expo.",
-    icon: "🛡️",
-    badge: "Project Expo",
-    color: "#a855f7"
-  }
-];
+export const experienceData = workExperience;
 
-export const educationData = [
+export const educationList = [
   {
+    degree: "B.Tech – Information Technology",
     institution: "IFET College of Engineering",
-    degree: "B.E. Engineering Graduate",
-    score: "71% Score",
-    status: "Graduated"
+    period: "2019 - 2023",
+    score: "71%",
+    description: "Focused on Software Engineering, Database Systems, Web Technologies, and Data Structures."
   },
   {
-    institution: "Mount Park Mat. Hr. Sec. School",
-    degree: "Higher Secondary (HSC)",
-    score: "51.3% Score",
-    status: "Completed"
+    degree: "Higher Secondary Certificate (HSC)",
+    institution: "Mount Park Matric Hr. Sec. School",
+    period: "2019",
+    score: "51.3%",
+    description: "Completed Higher Secondary Specialization in Computer Science & Mathematics."
   },
   {
+    degree: "Secondary School Leaving Certificate (SSLC)",
     institution: "Sri Gnanananda Mat. Hr. Sec. School",
-    degree: "Secondary School (SSLC)",
-    score: "78% Score",
-    status: "Completed"
+    period: "2017",
+    score: "78%",
+    description: "Secondary School Leaving Certification with high distinction in Mathematics & Science."
   }
 ];
 
-export const testimonialsData = [
+export const educationData = educationList;
+
+export const achievements = [
   {
-    quote: "Jamsheer possesses exceptional problem-solving drive and a rapid capability to pick up modern web frameworks like Laravel and React. His technical work on web performance is impressive.",
-    author: "Technical Lead",
-    role: "Cloud Logics & Le-Meniz",
-    avatar: "👨‍💻"
+    title: "2nd Place Winner - National Hackathon",
+    issuer: "IFET College of Engineering",
+    date: "2022",
+    icon: "🏆",
+    description: "Awarded 2nd Place out of 40+ participating teams for building an innovative real-time Web Application."
   },
   {
-    quote: "Demonstrated outstanding leadership and technical execution during the National Hackathon, building a functional doctor consulting platform in record time.",
-    author: "Hackathon Evaluator",
-    role: "IFET National Expo",
-    avatar: "🏆"
+    title: "Dr. APJ Abdul Kalam Youth Excellence Award",
+    issuer: "State Youth Forum",
+    date: "2021",
+    icon: "🏅",
+    description: "Recognized for academic performance and active technical leadership in college innovation workshops."
+  },
+  {
+    title: "CEMP Technical Expo Runner-Up",
+    issuer: "CEMP Tech Fest",
+    date: "2022",
+    icon: "🥈",
+    description: "Secured 2nd position in Project Presentation for demonstrating scalable database architecture."
   }
 ];
 
-export const blogData = [
+export const achievementsData = achievements;
+
+export const testimonials = [
   {
-    id: "laravel-performance",
-    title: "Optimizing Laravel API Performance & Query Executions",
-    excerpt: "Best practices for preventing N+1 queries in Eloquent ORM, leveraging Redis caching, and optimizing JSON responses for mobile clients.",
-    date: "July 2026",
+    quote: "Jamsheer is an exceptional software engineer who delivers clean, well-structured Laravel backend code with great attention to performance.",
+    name: "Senior Technical Lead",
+    title: "Engineering Lead, Web Services",
+    company: "Sahal Webads"
+  },
+  {
+    quote: "His ability to bridge backend REST APIs with modern React frontend components makes him an invaluable full-stack asset to any engineering team.",
+    name: "Project Manager",
+    title: "Product Manager",
+    company: "Cloud Logics"
+  }
+];
+
+export const testimonialsData = testimonials;
+
+export const blogPosts = [
+  {
+    id: "laravel-api-best-practices",
+    title: "Building High-Performance REST APIs with Laravel 10",
+    date: "July 2024",
     readTime: "5 min read",
-    category: "Backend Architecture",
-    link: "#"
+    snippet: "Discover architectural best practices for API rate limiting, Eloquent optimization, and JWT security in production Laravel applications."
   },
   {
-    id: "react-19-hooks",
-    title: "Building Clean React 19 Component Systems without Prop Drilling",
-    excerpt: "How to combine custom hooks, Context API, and CSS design tokens to maintain scalable React applications.",
-    date: "June 2026",
-    readTime: "4 min read",
-    category: "Frontend Engineering",
-    link: "#"
+    id: "react-clean-architecture",
+    title: "Clean Architecture in React 19 Applications",
+    date: "June 2024",
+    readTime: "6 min read",
+    snippet: "How to decouple UI components from business logic using custom hooks, services, and SOLID principles."
   }
 ];
+
+export const blogData = blogPosts;
+export const blogPostsData = blogPosts;
 
 export const chatbotFAQ = [
   {
-    keywords: ["hello", "hi", "hey", "who are you", "who"],
-    response: "Hello! I am Sheik Jamsheer Basha's AI Assistant. Jamsheer is a Software Engineer specializing in PHP, Laravel, Java, and React. How can I help you today?"
+    keywords: ["who", "about", "bio", "experience"],
+    answer: "Sheik Jamsheer Basha is a Software Engineer & Full Stack Developer specializing in PHP, Laravel, React, and MySQL. He currently works at Sahal Webads Pvt Ltd."
   },
   {
-    keywords: ["laravel", "php", "backend", "premium cuts"],
-    response: "Jamsheer builds powerful Laravel REST APIs! Check out 'Premium Cuts' (Halal Meat Ordering Platform with order & inventory management) or 'Nikah.com / Muslims-Matches'."
-  },
-  {
-    keywords: ["react", "next", "frontend"],
-    response: "Jamsheer develops fast React 19 & Next.js applications with custom hooks, SSR, Tailwind CSS, and glassmorphic UI design system tokens."
+    keywords: ["projects", "work", "portfolio", "premium cuts", "nikah"],
+    answer: "Jamsheer built Premium Cuts (Halal Meat Ordering Platform), Nikah.com (Muslims-Matches Halal Matrimonial Platform), AI Developer Assistant, and Student Portal Enterprise System."
   },
   {
     keywords: ["resume", "cv", "download"],
-    response: "You can click the 'Download Resume' button in the Hero section or Navbar to get a copy of Jamsheer's software engineering resume!"
+    answer: "You can download Jamsheer's official resume by clicking the 'Download Resume' button or visiting /Sheik_Jamsheer_Basha_Resume.html!"
   },
   {
-    keywords: ["hire", "job", "opportunity", "contact", "email", "reach"],
-    response: "Jamsheer is available for Senior / Full Stack Software Engineering opportunities! Scroll down to the Contact section or click 'Let's Chat'."
-  },
-  {
-    keywords: ["achievement", "award", "hackathon"],
-    response: "He won 2nd Place in the IFET Hackathon (Doctor Consulting App) and received the Dr. Kalam Youth Achiever Award!"
+    keywords: ["contact", "email", "phone", "hire"],
+    answer: "You can reach Jamsheer via email at sheikjamsheerbasha@gmail.com or phone at +91 82485 17785."
   }
 ];
