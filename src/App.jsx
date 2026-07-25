@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 import { ToastProvider } from "./context/ToastContext";
 import { initAnalytics } from "./services/analytics";
 import { useCommandPalette } from "./hooks/useCommandPalette";
@@ -18,9 +18,13 @@ import Contact from "./sections/Contact";
 import Footer from "./components/Footer";
 import ChatBot from "./components/ChatBot";
 import CommandPalette from "./components/CommandPalette";
-import CodeBackground from "./components/CodeBackground";
+
+import Resume3DCanvas from "./components/canvas/Resume3DCanvas";
+import IntroLoader from "./components/3d/IntroLoader";
+import CursorFollower from "./components/common/CursorFollower";
 
 function MainContent() {
+  const [loadingComplete, setLoadingComplete] = useState(false);
   const { isOpen, openPalette, closePalette } = useCommandPalette();
 
   useEffect(() => {
@@ -29,17 +33,25 @@ function MainContent() {
 
   return (
     <div style={{ color: "#f8fafc", minHeight: "100vh", position: "relative" }}>
-      {/* Dynamic Background Effect */}
-      <CodeBackground />
+      {/* 3D WebGL Canvas Engine Backdrop */}
+      <Resume3DCanvas />
+
+      {/* Reactive Magnetic Cursor Follower */}
+      <CursorFollower />
+
+      {/* Opening Intro Loader */}
+      {!loadingComplete && (
+        <IntroLoader onComplete={() => setLoadingComplete(true)} />
+      )}
 
       {/* Main Navigation Header */}
       <Navbar onOpenCommandPalette={openPalette} />
 
-      {/* Semantic Content Container */}
+      {/* Main Content Sections */}
       <main id="main-content">
         <Hero />
-        
-        {/* Recruiter GitHub Metrics Card */}
+
+        {/* GitHub Statistics Card */}
         <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "0 24px" }}>
           <GitHubStats />
         </div>
@@ -55,10 +67,10 @@ function MainContent() {
         <Contact />
       </main>
 
-      {/* Interactive Floating AI Assistant */}
+      {/* Interactive AI Assistant Drawer */}
       <ChatBot />
 
-      {/* Keyboard Command Palette Dialog */}
+      {/* Keyboard Command Palette Dialog (Ctrl+K) */}
       <CommandPalette isOpen={isOpen} onClose={closePalette} />
 
       {/* Site Footer */}
