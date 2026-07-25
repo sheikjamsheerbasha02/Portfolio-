@@ -19,6 +19,10 @@ export const developerInfo = {
   resumeHtmlUrl: "/Sheik_Jamsheer_Basha_Resume.html",
   github: "https://github.com/sheikjamsheerbasha02",
   linkedin: "https://www.linkedin.com/in/sheik-jamsheer-basha-t-59a3171ab/",
+  socials: [
+    { name: "GitHub", url: "https://github.com/sheikjamsheerbasha02" },
+    { name: "LinkedIn", url: "https://www.linkedin.com/in/sheik-jamsheer-basha-t-59a3171ab/" }
+  ],
   metrics: {
     experienceYears: "2+",
     projectsCompleted: "12+",

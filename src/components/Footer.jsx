@@ -5,6 +5,11 @@ export default function Footer() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
+  const socials = developerInfo.socials || [
+    { name: 'GitHub', url: developerInfo.github || 'https://github.com/sheikjamsheerbasha02' },
+    { name: 'LinkedIn', url: developerInfo.linkedin || 'https://www.linkedin.com/in/sheik-jamsheer-basha-t-59a3171ab/' }
+  ];
+
   return (
     <footer style={{
       borderTop: "1px solid rgba(255, 255, 255, 0.08)",
@@ -24,13 +29,13 @@ export default function Footer() {
         {/* Brand Column */}
         <div>
           <h3 style={{ fontSize: "20px", fontWeight: "800", color: "#ffffff", margin: "0 0 12px 0" }}>
-            Sheik Jamsheer Basha
+            {developerInfo.name}
           </h3>
           <p style={{ color: "#94a3b8", fontSize: "14px", lineHeight: "1.6", margin: "0 0 20px 0" }}>
-            Aspiring Software Developer passionate about building high-performance web solutions with PHP, Laravel, Java, and modern frontend tools.
+            Software Developer passionate about building high-performance web solutions with PHP, Laravel, React, and modern full stack tools.
           </p>
           <div style={{ display: "flex", gap: "12px" }}>
-            {developerInfo.socials.map((social, idx) => (
+            {socials.map((social, idx) => (
               <a
                 key={idx}
                 href={social.url}
@@ -51,7 +56,7 @@ export default function Footer() {
                   transition: "all 0.2s ease"
                 }}
               >
-                {social.name === "LinkedIn" ? "💼" : social.name === "GitHub" ? "🐙" : "▲"}
+                {social.name === "LinkedIn" ? "💼" : social.name === "GitHub" ? "🐙" : "🌐"}
               </a>
             ))}
           </div>
@@ -63,7 +68,7 @@ export default function Footer() {
             Navigation
           </h4>
           <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "10px" }}>
-            {navLinks.map((link) => (
+            {(navLinks || []).map((link) => (
               <a
                 key={link.id}
                 href={`#${link.id}`}
