@@ -3,6 +3,12 @@ import SectionHeader from '../components/common/SectionHeader';
 import GlassCard from '../components/common/GlassCard';
 
 export default function About() {
+  const bioText = developerInfo.bio || developerInfo.tagline ||
+    "A motivated and disciplined graduate seeking an entry-level opportunity in a growth-oriented organization where I can apply my academic knowledge, analytical thinking, and problem-solving abilities to contribute to organizational goals.";
+
+  const objectiveText = developerInfo.objective ||
+    "Eager to learn new technologies, adapt to professional environments, and continuously improve my skills while building a long-term career through dedication, teamwork, and consistent performance.";
+
   const highlights = [
     { title: "Clean Code Architecture", desc: "Focus on modular design patterns, clean OOP principles, and readable logic.", icon: "⚡" },
     { title: "Backend Competency", desc: "Solid foundation in PHP, Laravel, Java, MySQL, and RESTful web service design.", icon: "🛠️" },
@@ -25,13 +31,13 @@ export default function About() {
             Professional Summary
           </h3>
           <p style={{ color: "#cbd5e1", fontSize: "16px", lineHeight: "1.7", margin: "0 0 20px 0" }}>
-            {developerInfo.bio}
+            {bioText}
           </p>
           <h4 style={{ fontSize: "16px", fontWeight: "700", color: "#38bdf8", margin: "0 0 8px 0" }}>
             Career Objective
           </h4>
           <p style={{ color: "#94a3b8", fontSize: "15px", lineHeight: "1.6", margin: 0 }}>
-            {developerInfo.objective}
+            {objectiveText}
           </p>
         </GlassCard>
 

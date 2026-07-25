@@ -1,6 +1,17 @@
 export default function ProjectModal({ project, onClose }) {
   if (!project) return null;
 
+  const summaryText = project.shortDesc || project.summary || '';
+  const arch = typeof project.architecture === 'object' && project.architecture !== null
+    ? project.architecture
+    : { solution: project.architecture || '' };
+
+  const problemText = project.problem || arch.problem || 'Standard manual workflow latency.';
+  const solutionText = project.solution || arch.solution || 'Automated high-performance web platform.';
+  const scaleText = project.estimatedScale || project.scale || arch.scale || 'Architected for enterprise load.';
+  const githubUrl = project.github || project.githubUrl;
+  const liveDemoUrl = project.liveDemo || project.liveDemoUrl;
+
   return (
     <div
       role="dialog"
@@ -32,8 +43,7 @@ export default function ProjectModal({ project, onClose }) {
           boxShadow: '0 25px 50px rgba(0, 0, 0, 0.8)',
           overflowY: 'auto',
           padding: '32px',
-          position: 'relative',
-          animation: 'fadeIn 0.3s ease-out forwards'
+          position: 'relative'
         }}
       >
         {/* Close Button */}
@@ -77,7 +87,7 @@ export default function ProjectModal({ project, onClose }) {
 
         {/* Overview */}
         <p style={{ color: '#cbd5e1', fontSize: '16px', lineHeight: '1.7', marginBottom: '24px' }}>
-          {project.shortDesc}
+          {summaryText}
         </p>
 
         {/* Problem & Solution Grid */}
@@ -97,7 +107,7 @@ export default function ProjectModal({ project, onClose }) {
               🎯 Business Problem
             </h4>
             <p style={{ color: '#94a3b8', fontSize: '14px', margin: 0, lineHeight: '1.6' }}>
-              {project.problem}
+              {problemText}
             </p>
           </div>
 
@@ -111,7 +121,7 @@ export default function ProjectModal({ project, onClose }) {
               💡 Technical Solution
             </h4>
             <p style={{ color: '#94a3b8', fontSize: '14px', margin: 0, lineHeight: '1.6' }}>
-              {project.solution}
+              {solutionText}
             </p>
           </div>
         </div>
@@ -127,35 +137,30 @@ export default function ProjectModal({ project, onClose }) {
           <h4 style={{ color: '#38bdf8', fontSize: '16px', fontWeight: '700', margin: '0 0 12px 0', fontFamily: 'var(--font-mono)' }}>
             🏗️ System Architecture & Specs
           </h4>
-          <pre style={{
-            color: '#94a3b8',
-            fontSize: '13px',
-            fontFamily: 'var(--font-mono)',
-            whiteSpace: 'pre-wrap',
-            margin: 0,
-            lineHeight: '1.6'
-          }}>
-            {project.architecture}
-          </pre>
+          <div style={{ color: '#94a3b8', fontSize: '14px', lineHeight: '1.7' }}>
+            {arch.backend && <div><strong>Backend:</strong> {arch.backend}</div>}
+            {arch.frontend && <div><strong>Frontend:</strong> {arch.frontend}</div>}
+            {arch.keyFeatures && (
+              <ul style={{ marginTop: '8px', paddingLeft: '20px' }}>
+                {arch.keyFeatures.map((kf, idx) => <li key={idx}>{kf}</li>)}
+              </ul>
+            )}
+          </div>
         </div>
 
         {/* Challenges & Scaling */}
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '16px', marginBottom: '28px' }}>
           <div>
-            <span style={{ fontSize: '12px', color: '#f59e0b', fontWeight: '700', fontFamily: 'var(--font-mono)' }}>CHALLENGE & LESSONS</span>
-            <p style={{ color: '#94a3b8', fontSize: '14px', margin: '4px 0 0 0', lineHeight: '1.6' }}>{project.challenges}</p>
-          </div>
-          <div>
             <span style={{ fontSize: '12px', color: '#a855f7', fontWeight: '700', fontFamily: 'var(--font-mono)' }}>ESTIMATED SCALE</span>
-            <p style={{ color: '#94a3b8', fontSize: '14px', margin: '4px 0 0 0', lineHeight: '1.6' }}>{project.estimatedScale}</p>
+            <p style={{ color: '#94a3b8', fontSize: '14px', margin: '4px 0 0 0', lineHeight: '1.6' }}>{scaleText}</p>
           </div>
         </div>
 
         {/* Actions */}
         <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap' }}>
-          {project.github && (
+          {githubUrl && (
             <a
-              href={project.github}
+              href={githubUrl}
               target="_blank"
               rel="noopener noreferrer"
               style={{
@@ -171,9 +176,9 @@ export default function ProjectModal({ project, onClose }) {
               View GitHub Repository
             </a>
           )}
-          {project.liveDemo && (
+          {liveDemoUrl && (
             <a
-              href={project.liveDemo}
+              href={liveDemoUrl}
               target="_blank"
               rel="noopener noreferrer"
               style={{

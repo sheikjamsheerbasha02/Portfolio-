@@ -34,20 +34,37 @@ export default class ErrorBoundary extends Component {
           textAlign: 'center'
         }}>
           <div style={{
-            backgroundColor: 'rgba(15, 23, 42, 0.8)',
-            border: '1px solid rgba(239, 68, 68, 0.3)',
+            backgroundColor: 'rgba(15, 23, 42, 0.9)',
+            border: '1px solid rgba(239, 68, 68, 0.4)',
             borderRadius: '24px',
             padding: '40px',
-            maxWidth: '500px',
+            maxWidth: '700px',
+            width: '100%',
             boxShadow: '0 20px 40px rgba(0, 0, 0, 0.5)'
           }}>
             <div style={{ fontSize: '48px', marginBottom: '16px' }}>⚠️</div>
             <h2 style={{ fontSize: '24px', fontWeight: '800', margin: '0 0 12px 0', color: '#ffffff' }}>
-              Something went wrong
+              Runtime Application Error
             </h2>
-            <p style={{ color: '#94a3b8', fontSize: '14px', lineHeight: '1.6', marginBottom: '24px' }}>
-              An unexpected application error occurred. Click below to reload the page.
-            </p>
+            
+            {/* Display exact Error Message */}
+            <div style={{
+              backgroundColor: 'rgba(239, 68, 68, 0.1)',
+              border: '1px solid rgba(239, 68, 68, 0.3)',
+              borderRadius: '12px',
+              padding: '16px',
+              color: '#fca5a5',
+              fontFamily: 'monospace',
+              fontSize: '13px',
+              textAlign: 'left',
+              overflowX: 'auto',
+              marginBottom: '24px',
+              whiteSpace: 'pre-wrap'
+            }}>
+              {this.state.error?.toString() || 'Unknown Error'}
+              {this.state.error?.stack ? `\n\nStack:\n${this.state.error.stack}` : ''}
+            </div>
+
             <button
               onClick={this.handleReload}
               style={{
