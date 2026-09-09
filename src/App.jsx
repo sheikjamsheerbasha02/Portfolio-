@@ -1,88 +1,156 @@
-import { useState, useEffect, lazy, Suspense } from "react";
+import { useEffect, useState, lazy, Suspense } from "react";
 import { ToastProvider } from "./context/ToastContext";
 import { initAnalytics } from "./services/analytics";
 import { useCommandPalette } from "./hooks/useCommandPalette";
-
-import Navbar from "./components/Navbar";
-import Hero from "./sections/Hero";
-import GitHubStats from "./components/GitHubStats";
-import About from "./sections/About";
-import TechStack from "./sections/TechStack";
-import Projects from "./sections/Projects";
-import Experience from "./sections/Experience";
-import Achievements from "./sections/Achievements";
-import Education from "./sections/Education";
-import Testimonials from "./sections/Testimonials";
-import Blog from "./sections/Blog";
-import Contact from "./sections/Contact";
-import Footer from "./components/Footer";
-import ChatBot from "./components/ChatBot";
 import CommandPalette from "./components/CommandPalette";
+import { developerInfo } from "./data/portfolioData";
+import "./portfolio-reference.css";
 
-// Lazy load 3D Developer Universe page for 0-latency recruiter loads
 const DeveloperUniverse = lazy(() => import("./pages/DeveloperUniverse"));
 
-function MainContent() {
-  const [viewMode, setViewMode] = useState("recruiter"); // "recruiter" | "universe"
+const tech = [
+  ["🐍", "Python"], ["TS", "TypeScript"], ["⚛", "React"], ["⬢", "Node.js"], ["◇", "LLMs"],
+  ["◈", "SQLite"], ["◆", "Git"], ["◉", "Docker"], ["🐧", "Linux"], ["VS", "VS Code"]
+];
+
+function Reveal({ children, className = "", delay = "" }) {
+  const [visible, setVisible] = useState(false);
+  useEffect(() => {
+    const node = document.getElementById("ref-reveal-observer");
+    if (!node) return undefined;
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => { if (entry.isIntersecting) setVisible(true); });
+    }, { threshold: 0.12 });
+    const target = document.querySelectorAll(".ref-reveal");
+    target.forEach((el) => observer.observe(el));
+    return () => observer.disconnect();
+  }, []);
+  return <div id={className.includes("ref-observer") ? "ref-reveal-observer" : undefined} className={`ref-reveal ${visible ? "visible" : ""} ${className} ${delay}`}>{children}</div>;
+}
+
+function CharacterVisual() {
+  return (
+    <div className="ref-character" aria-label="Illustrated developer working at a laptop">
+      <div className="ref-person">
+        <div className="ref-hair" />
+        <div className="ref-head" />
+        <div className="ref-glasses"><i /><i /></div>
+        <div className="ref-neck" />
+        <div className="ref-hoodie" />
+        <div className="ref-arm left" />
+        <div className="ref-arm right" />
+        <div className="ref-laptop"><div className="ref-laptop-screen" /><div className="ref-laptop-base" /></div>
+      </div>
+      <div className="ref-float-card one">AI</div>
+      <div className="ref-float-card two">Build · Automate</div>
+      <div className="ref-cup" aria-hidden="true" />
+    </div>
+  );
+}
+
+function GlobeVisual() {
+  return (
+    <div className="ref-globe-panel">
+      <div style={{ position: "relative" }}>
+        <div className="ref-globe"><div className="ref-orbit" /></div>
+        <span className="ref-globe-chip a">AI</span>
+        <span className="ref-globe-chip b">Automation</span>
+        <span className="ref-globe-chip c">Solutions</span>
+      </div>
+    </div>
+  );
+}
+
+function Projects() {
+  return (
+    <section id="projects" className="ref-section">
+      <div className="ref-shell ref-card ref-projects ref-reveal">
+        <div className="ref-section-label">Featured Projects</div>
+        <h2 className="ref-title">Building Real-World Solutions</h2>
+        <p className="ref-body">A selection of projects that showcase work across software development and AI.</p>
+        <div className="ref-project-grid">
+          <article className="ref-project"><div className="ref-project-art"><div className="code">agent.run()<br />voice.listen()<br />tool.execute()</div></div><h3>FAHIM</h3><p>Local AI Assistant Platform</p><div className="ref-tags"><span className="ref-tag">Python</span><span className="ref-tag">LLM</span><span className="ref-tag">STT</span><span className="ref-tag">TTS</span></div><a href="#contact">View Project →</a></article>
+          <article className="ref-project"><div className="ref-project-art"><div className="bot" /></div><h3>AIRA</h3><p>AI Companion Platform</p><div className="ref-tags"><span className="ref-tag">Python</span><span className="ref-tag">React</span><span className="ref-tag">AI</span></div><a href="#contact">View Project →</a></article>
+          <article className="ref-project"><div className="ref-project-art"><div className="chart" /></div><h3>Market Analytics</h3><p>Gold Market Analysis</p><div className="ref-tags"><span className="ref-tag">Python</span><span className="ref-tag">Data</span><span className="ref-tag">Analytics</span></div><a href="#contact">View Project →</a></article>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function AppHome({ onEnterUniverse }) {
+  const [activeFilter, setActiveFilter] = useState("All");
+  const filters = ["All", "Languages", "Frontend", "Backend", "AI/ML", "DevOps", "Tools"];
   const { isOpen, openPalette, closePalette } = useCommandPalette();
 
+  useEffect(() => { initAnalytics(); }, []);
   useEffect(() => {
-    initAnalytics();
+    const reveal = () => document.querySelectorAll(".ref-reveal").forEach((el) => {
+      const top = el.getBoundingClientRect().top;
+      if (top < window.innerHeight * .88) el.classList.add("visible");
+    });
+    reveal();
+    window.addEventListener("scroll", reveal, { passive: true });
+    return () => window.removeEventListener("scroll", reveal);
   }, []);
 
-  if (viewMode === "universe") {
-    return (
-      <Suspense fallback={
-        <div style={{ minHeight: "100vh", backgroundColor: "#020617", color: "#38bdf8", display: "flex", alignItems: "center", justifyContent: "center", fontFamily: "var(--font-mono)", fontSize: "18px" }}>
-          Initializing Developer Universe 3D Engine...
-        </div>
-      }>
-        <DeveloperUniverse onExit={() => setViewMode("recruiter")} />
-      </Suspense>
-    );
-  }
-
   return (
-    <div style={{ color: "#f8fafc", minHeight: "100vh", position: "relative" }}>
-      {/* Main Navigation Header */}
-      <Navbar onOpenCommandPalette={openPalette} />
+    <div className="ref-site">
+      <nav className="ref-nav" aria-label="Primary navigation">
+        <a className="ref-logo" href="#top">SHEIK</a>
+        <div className="ref-links"><a href="#top">Home</a><a href="#about">About</a><a href="#projects">Projects</a><a href="#experience">Experience</a><a href="#contact">Contact</a></div>
+        <a className="ref-nav-cta" href="#contact">Let's Connect</a>
+      </nav>
 
-      {/* Main Content Sections */}
-      <main id="main-content">
-        <Hero onEnterDeveloperUniverse={() => setViewMode("universe")} />
+      <main id="top">
+        <section className="ref-hero ref-shell" aria-label="Hero Introduction">
+          <div className="ref-reveal">
+            <div className="ref-eyebrow">Hello, I'm</div>
+            <h1 className="ref-h1">Sheik <span>Fahim</span></h1>
+            <div className="ref-role">Software Developer &amp; AI Engineer</div>
+            <p className="ref-copy">Building intelligent software and AI systems that make a real difference. I combine reliable engineering with practical artificial intelligence to turn ideas into useful products.</p>
+            <div className="ref-actions"><a className="ref-btn ref-btn-primary" href="#projects">View My Work →</a><a className="ref-btn ref-btn-outline" href="/Sheik_Jamsheer_Basha_Resume.html" download>Download Resume</a></div>
+            <div className="ref-socials"><a href="https://github.com/sheikjamsheerbasha02" target="_blank" rel="noreferrer">◉ GitHub</a><a href="https://www.linkedin.com/in/sheik-jamsheer-basha/" target="_blank" rel="noreferrer">● LinkedIn</a><a href="mailto:sheik@example.com">◎ Email</a></div>
+          </div>
+          <CharacterVisual />
+        </section>
 
-        {/* GitHub Statistics Card */}
-        <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "0 24px" }}>
-          <GitHubStats />
-        </div>
+        <section id="about" className="ref-section ref-shell">
+          <div className="ref-grid-two">
+            <article className="ref-card ref-about ref-reveal"><div className="ref-section-label">About Me</div><h2 className="ref-title">Turning Ideas Into Intelligent Solutions</h2><p className="ref-body">I'm a software developer and AI engineer with a passion for building practical, reliable and scalable solutions. I enjoy working at the intersection of software engineering and artificial intelligence.</p><div className="ref-stats"><div className="ref-stat"><strong>3+</strong><span>Years of Experience</span></div><div className="ref-stat"><strong>10+</strong><span>Projects Completed</span></div><div className="ref-stat"><strong>100%</strong><span>Commitment to Quality</span></div></div></article>
+            <article className="ref-card ref-reveal ref-delay-1"><GlobeVisual /></article>
+          </div>
+        </section>
 
-        <About />
-        <TechStack />
+        <section id="skills" className="ref-section ref-shell">
+          <div className="ref-card ref-stack-card ref-reveal"><div className="ref-section-label">Skills</div><h2 className="ref-title">Tools &amp; Technologies</h2><p className="ref-body">A curated stack for building modern, intelligent applications.</p><div className="ref-filter">{filters.map((filter) => <button key={filter} className={activeFilter === filter ? "active" : ""} onClick={() => setActiveFilter(filter)}>{filter}</button>)}</div><div className="ref-tech-grid">{tech.map(([icon,name]) => <div className="ref-tech" key={name}><span className="ref-tech-icon">{icon}</span><span>{name}</span></div>)}</div></div>
+        </section>
+
         <Projects />
-        <Experience />
-        <Achievements />
-        <Education />
-        <Testimonials />
-        <Blog />
-        <Contact />
+
+        <section id="experience" className="ref-section ref-shell">
+          <div className="ref-card ref-journey ref-reveal"><div className="ref-section-label">Experience</div><h2 className="ref-title">My Professional Journey</h2><p className="ref-body">A timeline of experience, learning and growth.</p><div className="ref-timeline">
+            <div className="ref-timeline-row"><div className="ref-year">2024 – Present</div><div className="ref-job"><strong>Software Developer / AI Engineer</strong><small>Nikah.com (Current)<br />Working on AI-powered solutions, automation tools, and scalable applications.</small></div></div>
+            <div className="ref-timeline-row"><div className="ref-year">2022 – 2024</div><div className="ref-job"><strong>Software Developer</strong><small>Freelance<br />Built custom web applications, automation tools, and data solutions for various clients.</small></div></div>
+            <div className="ref-timeline-row"><div className="ref-year">2020 – 2022</div><div className="ref-job"><strong>Self Learning &amp; Projects</strong><small>Personal<br />Focused on Python, AI/ML, and building real-world projects.</small></div></div>
+          </div><div className="ref-journey-art"><div className="ref-path" /><div className="ref-flag" /></div></div>
+        </section>
+
+        <section id="contact" className="ref-section ref-shell">
+          <div className="ref-card ref-contact ref-reveal"><div className="ref-contact-copy"><div className="ref-section-label">Get In Touch</div><h2 className="ref-title">Let's Build Something Amazing Together</h2><p className="ref-body">I'm always open to discussing new opportunities, interesting projects, or just sharing ideas about technology.</p><div className="ref-actions"><a className="ref-btn ref-btn-primary" href="mailto:sheik@example.com">Send a Message →</a></div></div><div className="ref-contact-art" aria-hidden="true"><div className="ref-plant"><div className="ref-leaf"/><div className="ref-leaf"/><div className="ref-leaf"/><div className="ref-pot"/></div><div className="ref-monitor"/><div className="ref-desk"/><div className="ref-chair"/></div></div>
+        </section>
       </main>
 
-      {/* Interactive AI Assistant Drawer */}
-      <ChatBot />
-
-      {/* Keyboard Command Palette Dialog (Ctrl+K) */}
+      <footer className="ref-footer">© {new Date().getFullYear()} Sheik Jamsheer Basha · Software Developer &amp; AI Engineer</footer>
+      <button onClick={onEnterUniverse} style={{position:"fixed",right:18,bottom:18,zIndex:40,border:0,borderRadius:999,padding:"10px 14px",background:"#1267f5",color:"#fff",fontWeight:800,fontSize:10,boxShadow:"0 10px 24px rgba(18,103,245,.25)"}}>Developer Universe ↗</button>
+      <button onClick={openPalette} aria-label="Open command palette" style={{position:"fixed",left:18,bottom:18,zIndex:40,border:"1px solid rgba(38,79,150,.16)",borderRadius:999,padding:"10px 14px",background:"rgba(255,255,255,.85)",color:"#244574",fontWeight:800,fontSize:10}}>⌘K</button>
       <CommandPalette isOpen={isOpen} onClose={closePalette} />
-
-      {/* Site Footer */}
-      <Footer />
     </div>
   );
 }
 
 export default function App() {
-  return (
-    <ToastProvider>
-      <MainContent />
-    </ToastProvider>
-  );
+  const [viewMode, setViewMode] = useState("recruiter");
+  if (viewMode === "universe") return <Suspense fallback={<div style={{minHeight:"100vh",display:"grid",placeItems:"center",background:"#020617",color:"#38bdf8",fontFamily:"monospace"}}>Initializing Developer Universe 3D Engine...</div>}><DeveloperUniverse onExit={() => setViewMode("recruiter")} /></Suspense>;
+  return <ToastProvider><AppHome onEnterUniverse={() => setViewMode("universe")} /></ToastProvider>;
 }
