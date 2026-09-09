@@ -17,6 +17,7 @@
   height: auto;
   object-fit: contain;
   object-position: center;
+  content: url("/file_0000000071d08211973f749121994a91.png");
 }
 
 @media (max-width: 760px) {
