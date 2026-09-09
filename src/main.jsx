@@ -4,6 +4,7 @@ import ErrorBoundary from './components/common/ErrorBoundary';
 import App from './App.jsx';
 import './index.css';
 import './portfolio-refinement.css';
+import './portfolio-final-polish.css';
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
