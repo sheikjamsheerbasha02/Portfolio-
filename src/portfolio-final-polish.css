@@ -1,0 +1,91 @@
+/* Final visual lock: preserve the bright reference theme while tightening alignment, hierarchy, and motion. */
+.ref-site{
+  --ref-content-width:1160px;
+  --ref-section-gap:64px;
+  --ref-card-radius:22px;
+}
+
+/* Shared alignment grid */
+.ref-shell{width:min(var(--ref-content-width),calc(100% - 48px));}
+.ref-nav{width:min(var(--ref-content-width),calc(100% - 32px));}
+.ref-section{padding:var(--ref-section-gap) 0;}
+.ref-grid-two{align-items:stretch;}
+.ref-grid-two>.ref-card{height:100%;}
+
+/* Hero: cleaner vertical rhythm and a more balanced visual column. */
+.ref-hero{min-height:650px;padding:112px 0 64px;grid-template-columns:minmax(0,.96fr) minmax(0,1.04fr);gap:30px;}
+.ref-hero>.ref-reveal{align-self:center;}
+.ref-character{min-height:500px;align-self:center;}
+.ref-character::before{width:430px;height:430px;}
+.ref-socials{margin-top:30px;}
+
+/* Cards sit on a common baseline and feel less inflated. */
+.ref-card{border-radius:var(--ref-card-radius);}
+.ref-about{min-height:430px;padding:34px;}
+.ref-globe-panel{min-height:430px;}
+.ref-stack-card,.ref-projects,.ref-journey,.ref-contact{padding:34px;}
+.ref-title{max-width:760px;}
+.ref-body{max-width:720px;}
+
+/* Six technologies belong on one aligned row on desktop. */
+.ref-tech-grid.ref-tech-grid-six{grid-template-columns:repeat(6,minmax(0,1fr));gap:12px;}
+.ref-tech-grid-six .ref-tech{min-width:0;min-height:96px;padding:12px 8px;}
+.ref-tech-grid-six .ref-tech-icon{font-size:27px;}
+/* The source data intentionally uses an encoded HTML glyph; render it cleanly as a code mark. */
+.ref-tech-grid-six .ref-tech:first-child .ref-tech-icon{font-size:0;}
+.ref-tech-grid-six .ref-tech:first-child .ref-tech-icon::before{content:"</>";font:700 27px/1 ui-monospace,SFMono-Regular,Menlo,monospace;color:#10204c;}
+
+/* Experience: reserve the artwork column so it never competes with the timeline copy. */
+.ref-journey{min-height:360px;}
+.ref-timeline{position:relative;z-index:2;max-width:760px;}
+.ref-journey-art-enhanced{position:absolute;right:18px;bottom:18px;width:30%;height:72%;z-index:1;pointer-events:none;}
+.ref-job{min-width:0;}
+.ref-job ul{max-width:680px;}
+
+/* Education/certification cards share identical vertical rhythm. */
+.ref-info-card{padding:34px;}
+.ref-education-list>div,.ref-cert-list>div{min-height:72px;display:flex;flex-direction:column;justify-content:center;}
+
+/* Contact art remains visually present but aligned to the card center. */
+.ref-contact{min-height:390px;display:grid;grid-template-columns:minmax(0,1fr) minmax(300px,.9fr);align-items:center;gap:30px;}
+.ref-contact-copy{position:relative;z-index:2;}
+.ref-contact-art{min-height:300px;display:grid;place-items:center;}
+.ref-contact-details{max-width:560px;}
+
+/* Subtle motion: smooth, not busy. */
+.ref-card:hover{transform:translateY(-4px) rotateX(.35deg);}
+.ref-btn,.ref-filter button,.ref-tech,.ref-contact-details a{will-change:transform;}
+.ref-tech-grid-six .ref-tech:nth-child(1) .ref-tech-icon{animation-delay:-.3s;}
+.ref-tech-grid-six .ref-tech:nth-child(4) .ref-tech-icon{animation-delay:-1.8s;}
+.ref-tech-grid-six .ref-tech:nth-child(5) .ref-tech-icon{animation-delay:-2.4s;}
+
+/* Keep the theme locked while improving readability on wide screens. */
+@media (min-width:1200px){
+  .ref-h1{font-size:clamp(58px,5.4vw,76px);}
+  .ref-role{font-size:28px;}
+  .ref-section{padding:70px 0;}
+}
+
+@media (max-width:980px){
+  .ref-tech-grid.ref-tech-grid-six{grid-template-columns:repeat(3,minmax(0,1fr));}
+  .ref-hero{grid-template-columns:1fr;min-height:auto;padding-top:110px;}
+  .ref-character{min-height:450px;}
+  .ref-journey-art-enhanced{width:34%;opacity:.9;}
+}
+
+@media (max-width:640px){
+  .ref-shell{width:min(100% - 24px,1180px);}
+  .ref-nav{width:calc(100% - 18px);}
+  .ref-section{padding:44px 0;}
+  .ref-hero{padding:92px 0 42px;gap:12px;}
+  .ref-about,.ref-stack-card,.ref-journey,.ref-contact,.ref-info-card{padding:24px;}
+  .ref-globe-panel{min-height:340px;}
+  .ref-tech-grid.ref-tech-grid-six{grid-template-columns:repeat(2,minmax(0,1fr));}
+  .ref-journey-art-enhanced{position:relative;right:auto;bottom:auto;width:100%;height:190px;margin-top:14px;opacity:.82;}
+  .ref-contact{grid-template-columns:1fr;gap:10px;}
+  .ref-contact-art{min-height:250px;}
+}
+
+@media (prefers-reduced-motion:reduce){
+  .ref-card,.ref-btn,.ref-tech,.ref-contact-details a{will-change:auto;}
+}
