@@ -3,6 +3,7 @@ import { createRoot } from 'react-dom/client';
 import ErrorBoundary from './components/common/ErrorBoundary';
 import App from './App.jsx';
 import './index.css';
+import './portfolio-refinement.css';
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
