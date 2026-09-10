@@ -5,6 +5,7 @@ import App from './App.jsx';
 import './index.css';
 import './portfolio-refinement.css';
 import './portfolio-final-polish.css';
+import './portfolio-nav-static.css';
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
