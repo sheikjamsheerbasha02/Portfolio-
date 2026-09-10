@@ -1,0 +1,5 @@
+/* Keep the top navigation in normal document flow. */
+.ref-nav {
+  position: relative !important;
+  top: auto !important;
+}
