@@ -1,22 +1,44 @@
-/* Scroll-linked motion layer: ultra-slow, subtle movement follows the user's scroll position. */
-.ref-scroll-section{--scroll-progress:0}
-.ref-scroll-section.ref-section{position:relative;will-change:transform}
-.ref-scroll-section .ref-card{opacity:calc(.96 + (var(--scroll-progress) * .04));transform:translate3d(0,calc((1 - var(--scroll-progress)) * 6px),0) scale(calc(.998 + (var(--scroll-progress) * .002)));transition:transform 1s cubic-bezier(.22,1,.36,1),opacity 1s ease-out!important}
-.ref-scroll-section .ref-section-label{transform:translate3d(0,calc((1 - var(--scroll-progress)) * 3px),0);opacity:calc(.9 + (var(--scroll-progress) * .1));transition:transform 1.1s cubic-bezier(.22,1,.36,1),opacity 1.1s ease-out!important}
-.ref-scroll-section .ref-title{transform:translate3d(0,calc((1 - var(--scroll-progress)) * 4px),0);opacity:calc(.9 + (var(--scroll-progress) * .1));transition:transform 1.2s cubic-bezier(.22,1,.36,1),opacity 1.2s ease-out!important}
-.ref-scroll-section .ref-body{transform:translate3d(0,calc((1 - var(--scroll-progress)) * 3px),0);opacity:calc(.88 + (var(--scroll-progress) * .12));transition:transform 1.25s cubic-bezier(.22,1,.36,1),opacity 1.25s ease-out!important}
-.ref-scroll-section .ref-stats,.ref-scroll-section .ref-filter,.ref-scroll-section .ref-timeline,.ref-scroll-section .ref-education-list,.ref-scroll-section .ref-cert-list,.ref-scroll-section .ref-contact-details{transform:translate3d(0,calc((1 - var(--scroll-progress)) * 5px),0);opacity:calc(.9 + (var(--scroll-progress) * .1));transition:transform 1.3s cubic-bezier(.22,1,.36,1),opacity 1.3s ease-out!important}
-.ref-scroll-section .ref-stat,.ref-scroll-section .ref-tech,.ref-scroll-section .ref-education-list>div,.ref-scroll-section .ref-cert-list>div{transition:transform 1.35s cubic-bezier(.22,1,.36,1),opacity 1.35s ease-out!important;animation:none!important}
-.ref-scroll-section .ref-stat:nth-child(1),.ref-scroll-section .ref-tech:nth-child(1),.ref-scroll-section .ref-education-list>div:nth-child(1),.ref-scroll-section .ref-cert-list>div:nth-child(1){transform:translate3d(0,calc((1 - var(--scroll-progress)) * 4px),0)}
-.ref-scroll-section .ref-stat:nth-child(2),.ref-scroll-section .ref-tech:nth-child(2),.ref-scroll-section .ref-education-list>div:nth-child(2),.ref-scroll-section .ref-cert-list>div:nth-child(2){transform:translate3d(0,calc((1 - var(--scroll-progress)) * 2px),0)}
-.ref-scroll-section .ref-stat:nth-child(3),.ref-scroll-section .ref-tech:nth-child(3),.ref-scroll-section .ref-education-list>div:nth-child(3),.ref-scroll-section .ref-cert-list>div:nth-child(3){transform:translate3d(0,calc((1 - var(--scroll-progress)) * 1px),0)}
-.ref-scroll-section .ref-tech:nth-child(n+4){transform:translate3d(0,calc((1 - var(--scroll-progress)) * -1px),0)}
-.ref-scroll-section .ref-tech-icon{transform:translate3d(0,calc((1 - var(--scroll-progress)) * 2px),0) scale(calc(.992 + (var(--scroll-progress) * .008)));animation:none!important;transition:transform 1.35s cubic-bezier(.22,1,.36,1)!important}
-.ref-scroll-section .ref-journey-art-enhanced{transform:translate3d(calc((1 - var(--scroll-progress)) * 6px),calc((1 - var(--scroll-progress)) * 2px),0) scale(calc(.995 + (var(--scroll-progress) * .005)));opacity:calc(.9 + (var(--scroll-progress) * .1));animation:none!important;transition:transform 1.5s cubic-bezier(.22,1,.36,1),opacity 1.5s ease-out!important}
-.ref-scroll-section .ref-contact-copy>*{transform:translate3d(calc((1 - var(--scroll-progress)) * -3px),calc((1 - var(--scroll-progress)) * 2px),0);opacity:calc(.9 + (var(--scroll-progress) * .1));animation:none!important;transition:transform 1.35s cubic-bezier(.22,1,.36,1),opacity 1.35s ease-out!important}
-.ref-scroll-section .ref-contact-art{transform:translate3d(calc((1 - var(--scroll-progress)) * 7px),0,0) rotateY(calc((1 - var(--scroll-progress)) * -1deg));opacity:calc(.9 + (var(--scroll-progress) * .1));animation:none!important;transition:transform 1.6s cubic-bezier(.22,1,.36,1),opacity 1.6s ease-out!important}
-.ref-scroll-section .ref-globe-stage{transform:translate3d(0,calc((.5 - var(--scroll-progress)) * 3px),0) rotateX(calc((.5 - var(--scroll-progress)) * .5deg));transition:transform 1.6s cubic-bezier(.22,1,.36,1)!important}
-.ref-scroll-section .ref-path{transform:scaleX(calc(.95 + (var(--scroll-progress) * .05)));transform-origin:left center;transition:transform 1.5s cubic-bezier(.22,1,.36,1)!important}
-.ref-scroll-section .ref-flag{transform:translateY(calc((1 - var(--scroll-progress)) * 2px));opacity:calc(.9 + (var(--scroll-progress) * .1));transition:transform 1.35s cubic-bezier(.22,1,.36,1),opacity 1.35s ease-out!important}
-@media(max-width:640px){.ref-scroll-section .ref-card{transform:translate3d(0,calc((1 - var(--scroll-progress)) * 3px),0) scale(calc(.999 + (var(--scroll-progress) * .001)))}.ref-scroll-section .ref-contact-art{transform:translate3d(0,calc((1 - var(--scroll-progress)) * 3px),0)}}
-@media(prefers-reduced-motion:reduce){.ref-scroll-section .ref-card,.ref-scroll-section .ref-section-label,.ref-scroll-section .ref-title,.ref-scroll-section .ref-body,.ref-scroll-section .ref-stats,.ref-scroll-section .ref-filter,.ref-scroll-section .ref-timeline,.ref-scroll-section .ref-education-list,.ref-scroll-section .ref-cert-list,.ref-scroll-section .ref-contact-details,.ref-scroll-section .ref-stat,.ref-scroll-section .ref-tech,.ref-scroll-section .ref-education-list>div,.ref-scroll-section .ref-cert-list>div,.ref-scroll-section .ref-tech-icon,.ref-scroll-section .ref-journey-art-enhanced,.ref-scroll-section .ref-contact-copy>*,.ref-scroll-section .ref-contact-art,.ref-scroll-section .ref-globe-stage,.ref-scroll-section .ref-path,.ref-scroll-section .ref-flag{transform:none!important;opacity:1!important;transition:none!important}}
+/* Cinematic section reveal: motion is triggered by entering the viewport, not continuously driven by scroll position. */
+.ref-reveal{
+  opacity:0;
+  transform:translate3d(0,28px,0) scale(.985);
+  filter:blur(3px);
+  transition:opacity 1s cubic-bezier(.22,1,.36,1),transform 1.05s cubic-bezier(.22,1,.36,1),filter 1s ease-out!important;
+}
+.ref-reveal.visible{
+  opacity:1;
+  transform:translate3d(0,0,0) scale(1);
+  filter:blur(0);
+}
+.ref-reveal.visible .ref-section-label{animation:cinematicLabel .7s cubic-bezier(.22,1,.36,1) both}
+.ref-reveal.visible .ref-title{animation:cinematicTitle .85s cubic-bezier(.22,1,.36,1) .08s both}
+.ref-reveal.visible .ref-body{animation:cinematicBody .8s cubic-bezier(.22,1,.36,1) .16s both}
+.ref-reveal.visible .ref-actions{animation:cinematicBody .8s cubic-bezier(.22,1,.36,1) .24s both}
+.ref-reveal.visible .ref-socials{animation:cinematicBody .8s cubic-bezier(.22,1,.36,1) .3s both}
+.ref-reveal.visible .ref-stat:nth-child(1){animation:cinematicCard .8s cubic-bezier(.22,1,.36,1) .16s both}
+.ref-reveal.visible .ref-stat:nth-child(2){animation:cinematicCard .8s cubic-bezier(.22,1,.36,1) .24s both}
+.ref-reveal.visible .ref-stat:nth-child(3){animation:cinematicCard .8s cubic-bezier(.22,1,.36,1) .32s both}
+.ref-reveal.visible .ref-tech:nth-child(1),.ref-reveal.visible .ref-education-list>div:nth-child(1),.ref-reveal.visible .ref-cert-list>div:nth-child(1){animation:cinematicCard .75s cubic-bezier(.22,1,.36,1) .12s both}
+.ref-reveal.visible .ref-tech:nth-child(2),.ref-reveal.visible .ref-education-list>div:nth-child(2),.ref-reveal.visible .ref-cert-list>div:nth-child(2){animation:cinematicCard .75s cubic-bezier(.22,1,.36,1) .2s both}
+.ref-reveal.visible .ref-tech:nth-child(3),.ref-reveal.visible .ref-education-list>div:nth-child(3),.ref-reveal.visible .ref-cert-list>div:nth-child(3){animation:cinematicCard .75s cubic-bezier(.22,1,.36,1) .28s both}
+.ref-reveal.visible .ref-tech:nth-child(n+4){animation:cinematicCard .75s cubic-bezier(.22,1,.36,1) .34s both}
+.ref-reveal.visible .ref-timeline-row{animation:cinematicTimeline .9s cubic-bezier(.22,1,.36,1) .18s both}
+.ref-reveal.visible .ref-journey-art-enhanced{animation:cinematicArt 1s cubic-bezier(.22,1,.36,1) .22s both}
+.ref-reveal.visible .ref-contact-details{animation:cinematicBody .85s cubic-bezier(.22,1,.36,1) .2s both}
+.ref-reveal.visible .ref-contact-art{animation:cinematicArt 1s cubic-bezier(.22,1,.36,1) .2s both}
+
+@keyframes cinematicLabel{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+@keyframes cinematicTitle{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+@keyframes cinematicBody{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+@keyframes cinematicCard{from{opacity:0;transform:translateY(18px) scale(.97)}to{opacity:1;transform:translateY(0) scale(1)}}
+@keyframes cinematicTimeline{from{opacity:0;transform:translateX(-18px)}to{opacity:1;transform:translateX(0)}}
+@keyframes cinematicArt{from{opacity:0;transform:translate3d(18px,8px,0) scale(.97)}to{opacity:1;transform:translate3d(0,0,0) scale(1)}}
+
+@media(max-width:640px){
+  .ref-reveal{transform:translate3d(0,20px,0) scale(.99);filter:blur(2px)}
+  .ref-reveal.visible .ref-contact-art{animation:cinematicBody .9s cubic-bezier(.22,1,.36,1) .2s both}
+}
+
+@media(prefers-reduced-motion:reduce){
+  .ref-reveal,.ref-reveal.visible,.ref-reveal.visible>* ,.ref-reveal.visible .ref-section-label,.ref-reveal.visible .ref-title,.ref-reveal.visible .ref-body,.ref-reveal.visible .ref-actions,.ref-reveal.visible .ref-socials,.ref-reveal.visible .ref-stat,.ref-reveal.visible .ref-tech,.ref-reveal.visible .ref-education-list>div,.ref-reveal.visible .ref-cert-list>div,.ref-reveal.visible .ref-timeline-row,.ref-reveal.visible .ref-journey-art-enhanced,.ref-reveal.visible .ref-contact-details,.ref-reveal.visible .ref-contact-art{animation:none!important;transition:none!important;transform:none!important;filter:none!important;opacity:1!important}
+}
